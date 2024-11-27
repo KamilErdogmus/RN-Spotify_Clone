@@ -33,7 +33,7 @@ These libraries collectively power the Spotify Clone with features like dynamic 
 
 ## Preview
 
-<img src="assets/SpotifyGIF.gif" height="500" />
+<img src="assets/Spotify-GIFF.gif" height="500" />
 
 ## API
 
