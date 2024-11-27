@@ -11,7 +11,6 @@ export type RootDrawerParamList = {
 export type RootStackParamList = {
   Login: undefined;
   Main: { screen?: string } | undefined;
-  SearchDetail: undefined;
   ArtistBio: {
     id: string;
   };
@@ -22,7 +21,13 @@ export type RootTabParamList = {
   Search: undefined;
   Library: undefined;
   Premium: undefined;
-  SearchDetail: undefined;
+  SearchDetail: {
+    results?: {
+      type: "album" | "artist";
+      albumID?: string;
+      artistID?: string;
+    };
+  };
   SongInfo: {
     id: string;
     data?: {
@@ -180,7 +185,8 @@ export interface IAlbumTracks {
   artistName: string;
   albumID: string;
   albumImage: string;
-  playcount: string;
+  imageUrl: string;
+  playcount: number;
 }
 
 export interface TrackData {
@@ -233,4 +239,21 @@ export interface ISearchResponse {
   tracks: ITrack[];
   albums: IAlbum[];
   artists: IArtist[];
+}
+export interface AddListProps {
+  track: {
+    trackID: string;
+    trackName: string;
+    artistName: string;
+    artistID: string;
+    albumName: string;
+    albumID: string;
+    artistImageUrl: string | undefined;
+    albumImageUrl: string | undefined;
+    trackImageUrl: string | undefined;
+    duration: number | undefined;
+    hexColor: string | undefined;
+    isPlaying: boolean;
+    currentTime: number;
+  };
 }

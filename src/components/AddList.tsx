@@ -3,24 +3,7 @@ import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 import { useAtom } from "jotai";
 import { isTrackLikedAtom, toggleLikeAtom } from "../atom/dist/likedSongatom";
-
-interface AddListProps {
-  track: {
-    trackID: string;
-    trackName: string;
-    artistName: string;
-    artistID: string;
-    albumName: string;
-    albumID: string;
-    artistImageUrl: string | undefined;
-    albumImageUrl: string | undefined;
-    trackImageUrl: string | undefined;
-    duration: number | undefined;
-    hexColor: string | undefined;
-    isPlaying: boolean;
-    currentTime: number;
-  };
-}
+import { AddListProps } from "../utils/types";
 
 const AddList = ({ track }: AddListProps) => {
   const [, toggleLike] = useAtom(toggleLikeAtom);

@@ -3,7 +3,7 @@ import { Text, View, TouchableOpacity } from "react-native";
 import { drawerOpt } from "../../utils/constants";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const DrawerContent = (props) => {
+const DrawerContent = () => {
   return (
     <SafeAreaView className="flex-1 bg-[#1f1f1f] p-4">
       <View className="flex-row items-center mb-4">

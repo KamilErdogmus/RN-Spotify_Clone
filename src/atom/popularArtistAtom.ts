@@ -5,6 +5,8 @@ export interface SimpleArtist {
   id: string;
   name: string;
   image: string;
+  artist: string;
+  artists: string;
   type?: "album" | "artist" | "track";
   uri?: string;
 }

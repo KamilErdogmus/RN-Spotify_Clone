@@ -20,7 +20,7 @@ const Router = () => {
           drawerActiveTintColor: "white",
           drawerInactiveTintColor: "#b3b3b3",
         }}
-        drawerContent={(props) => <DrawerContent {...props} />}
+        drawerContent={(props) => <DrawerContent />}
       >
         <Drawer.Screen
           name="MainStacks"

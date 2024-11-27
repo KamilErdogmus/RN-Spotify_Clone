@@ -31,7 +31,6 @@ const SongInfoScreen = ({ query = false }) => {
   const [, closeModal] = useAtom(closeModalAtom);
   const [currentTrack, setCurrentTrack] = useAtom(currentTrackAtom);
   const [lyrics, setLyrics] = useState<LyricLine[]>([]);
-  const [currentTime, setCurrentTime] = useState<number>(0);
   const [progress, setProgress] = useState({
     position: 0,
     duration: currentTrack?.duration || 30,
@@ -41,7 +40,7 @@ const SongInfoScreen = ({ query = false }) => {
     if (currentTrack?.trackID) {
       fetchLyrics(currentTrack.trackID);
     }
-  }, [currentTrack?.trackID, fetchLyrics]);
+  }, [currentTrack?.trackID]);
 
   const fetchLyrics = async (trackId: string) => {
     try {

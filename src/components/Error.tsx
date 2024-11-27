@@ -1,7 +1,7 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-const Error = ({ message }: { message: string }) => {
+const Error = ({ message }: { message: string | null }) => {
   return (
     <View
       className="items-center justify-center flex-1 p-6 bg-black"

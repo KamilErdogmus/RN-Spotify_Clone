@@ -20,7 +20,7 @@ const PodcastCard = ({ episodes, loading, error }: IPodcastCard) => {
       {loading ? (
         <Loader />
       ) : error ? (
-        <Error message={error.message} />
+        <Error message={error} />
       ) : episodes.length === 0 ? (
         <View className="items-center justify-center">
           <Text className="text-white">No podcast episodes available</Text>

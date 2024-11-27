@@ -1,8 +1,8 @@
 import { View, Text, Pressable } from "react-native";
 import React from "react";
 import Photo from "./Photo";
-import { useNavigation } from "@react-navigation/native";
-import { TabNavigationProp } from "../utils/types";
+import { NavigationProp, useNavigation } from "@react-navigation/native";
+import { RootTabParamList, TabNavigationProp } from "../utils/types";
 import { Screens } from "../utils/Screens";
 
 interface SearchResult {
@@ -15,18 +15,26 @@ interface SearchResult {
   artistID?: string;
 }
 
+type Props = {
+  navigation: NavigationProp<RootTabParamList>;
+  results: {
+    type: "album" | "artist";
+    albumID?: string;
+    artistID?: string;
+  };
+};
+
 const RenderSearchResult = ({ results }: { results: SearchResult }) => {
   const navigation = useNavigation<TabNavigationProp>();
 
   const handleNavigate = () => {
-    if (results.type === "album") {
+    if (results.type === "album" && results.albumID) {
       navigation.navigate(Screens.AlbumInfo, { id: results.albumID });
     }
-    if (results.type === "artist") {
+    if (results.type === "artist" && results.artistID) {
       navigation.navigate(Screens.ArtistInfo, { id: results.artistID });
     }
   };
-
   return (
     <Pressable onPress={handleNavigate} className="flex-row px-4 my-2">
       <Photo

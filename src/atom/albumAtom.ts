@@ -10,7 +10,7 @@ const initialAlbumData: AlbumData = {
   artistName: "",
   date: "",
   artistAvatarImage: "",
-  linearColor: "#121212",
+  linearColor: "#3a3a3a",
   albumImage: "",
   copyright: "",
   releatedAlbums: [],

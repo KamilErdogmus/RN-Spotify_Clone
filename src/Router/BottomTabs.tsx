@@ -25,11 +25,7 @@ import AlbumInfoScreen from "../Screens/AlbumInfoScreen";
 import SongInfoScreen from "../Screens/SongInfoScreen";
 import ArtistBioScreen from "../Screens/ArtistBioScreen";
 import MiniPlayer from "../components/MiniPlayer";
-import {
-  closeModalAtom,
-  currentTrackAtom,
-  modalAtom,
-} from "../atom/currentAtom";
+import { currentTrackAtom, modalAtom } from "../atom/currentAtom";
 import Modal from "react-native-modal";
 import { setupPlayer, stopPlayer } from "../utils/player";
 
@@ -40,7 +36,6 @@ const BottomTabs = () => {
   const [artistBio] = useAtom(fetchArtistBioAtom);
   const [modalState] = useAtom(modalAtom);
   const [currentTrack] = useAtom(currentTrackAtom);
-  const [, closeModal] = useAtom(closeModalAtom);
 
   useEffect(() => {
     setupPlayer();
@@ -205,7 +200,9 @@ const BottomTabs = () => {
         />
       </Tab.Navigator>
 
-      {currentTrack?.duration > 0 && <MiniPlayer />}
+      {currentTrack && currentTrack.duration && currentTrack.duration > 0 && (
+        <MiniPlayer />
+      )}
       <View className="px-1">
         <Modal
           isVisible={modalState.isVisible}
